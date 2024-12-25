@@ -22,19 +22,30 @@
 /*******************************************/
 
 body {
-
+     margin-left: 10%;
+     margin-top: 10%;
+     margin-bottom: 10%;
 }
 
 
 /******************************************
 /* LAYOUT
 /*******************************************/
-header {
+img{
+     display: block;
+     margin: 0 auto;
+     height: 200px;
+   }
 
+html{
+     background-color: black;
+     color: grey;
+}   
+input{
+     background-color: grey;
 }
-
-footer {
-
+button{
+     background-color: grey;
 }
 
 /******************************************
