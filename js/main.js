@@ -1,6 +1,14 @@
 
 //The user will enter a cocktail. Get a cocktail name, photo, and instructions and place them in the DOM
+
+window.onbeforeunload = function(event)
+{
+    return confirm("Confirm refresh");
+};
+
 document.querySelector('button').addEventListener('click', getDrink)
+
+// window.reload = 
 
 function getDrink(){
     const choice = document.querySelector('input').value
@@ -11,7 +19,7 @@ fetch(url)
       console.log(data)
       document.querySelector('h2').innerText = data.title
       if (data.media_type === 'image') {
-        document.querySelector('img').src = data.hdurl
+        document.querySelector('img').src = data.url
       }else if(data.media_type === 'video'){
         document.querySelector('iframe').src = data.url
       }
