@@ -18,10 +18,17 @@ fetch(url)
     .then(data => {
       console.log(data)
       document.querySelector('h2').innerText = data.title
+      // let img =
+      // let hiddenVideo =
+      // let video =
+      // let hiddenVideo =
       if (data.media_type === 'image') {
         document.querySelector('img').src = data.url
+        // document.querySelector('iframe').style.visibility = 'hidden' 
       }else if(data.media_type === 'video'){
         document.querySelector('iframe').src = data.url
+        // document.querySelector('img').style.visibility = 'hidden' 
+      }else{
       }
       document.querySelector('h3').innerText = data.explanation
       // media type
