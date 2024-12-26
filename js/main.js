@@ -3,8 +3,8 @@
 document.querySelector('button').addEventListener('click', getDrink)
 
 function getDrink(){
-    const choice = document.querySelector('input').value.toLowerCase()
-    const url = `https://api.nasa.gov/planetary/apod?api_key=gGIh2JmUXbLcG7fwadwnbaaZg2klIH4P3GWrYnbP`
+    const choice = document.querySelector('input').value
+    const url = `https://api.nasa.gov/planetary/apod?api_key=gGIh2JmUXbLcG7fwadwnbaaZg2klIH4P3GWrYnbP&date=${choice}`
 fetch(url)
     .then(res => res.json()) // parse response as JSON
     .then(data => {
@@ -17,5 +17,16 @@ fetch(url)
         console.log(`error ${err}`)
     });
 }
+
+// anki
+// how to do you add another query parameter to an API key?
+// e.g.: https://api.nasa.gov/planetary/apod?api_key=gGIh2JmUXbLcG7fwadwnbaaZg2klIH4P3GWrYnbP
+// answer: we use '&'
+// e.g.: `https://api.nasa.gov/planetary/apod?api_key=gGIh2JmUXbLcG7fwadwnbaaZg2klIH4P3GWrYnbP&date=${choice}`
+
+
+// how do we change code to accept video?
+
+
 
 //www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic
