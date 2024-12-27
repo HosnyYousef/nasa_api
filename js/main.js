@@ -10,12 +10,10 @@ document.querySelector('button').addEventListener('click', getDrink)
 
 // window.reload = 
 
-//
     // Refresh the page after a delay of 3 seconds
-    setTimeout(function(){
-      location.reload();
-  }, 3000); // 3000 milliseconds = 3 seconds
+ // 3000 milliseconds = 3 seconds
 
+  // location.replace()
 function getDrink(){
 
     const choice = document.querySelector('input').value
@@ -30,14 +28,20 @@ fetch(url)
       // let video = document.querySelector('iframe').src = data.url
       // let hiddenImg = document.querySelector('img').style.visibility = 'hidden' 
       if (data.media_type === 'image') {
-        document.querySelector('img').src = data.url,
+        document.querySelector('img').src = data.url
+        setTimeout(function(){
+        document.querySelector('img').style.visibility = 'visable',
         document.querySelector('iframe').style.visibility = 'hidden'
+      }, 3000); 
+      document.querySelector('img').style.visibility = 'visable'
       }else if(data.media_type === 'video'){
-        document.querySelector('iframe').src = data.url,
-        document.querySelector('img').style.visibility = 'hidden' 
-      }else{
-        document.querySelector('img').style.visibility = 'hidden',        
-        document.querySelector('iframe').style.visibility = 'hidden' 
+        document.querySelector('iframe').src = data.url
+        setTimeout(function(){
+        document.querySelector('iframe').style.visibility = 'visable',
+        document.querySelector('img').style.visibility = 'hidden'
+      }, 3000); 
+      document.querySelector('iframe').style.visibility = 'visable'
+      // location.reload();
       }
       document.querySelector('h3').innerText = data.explanation
       // media type
@@ -45,7 +49,6 @@ fetch(url)
     .catch(err => {
         console.log(`error ${err}`)
     });
-
 }
 
 // anki
