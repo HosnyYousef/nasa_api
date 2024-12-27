@@ -10,7 +10,14 @@ document.querySelector('button').addEventListener('click', getDrink)
 
 // window.reload = 
 
+//
+    // Refresh the page after a delay of 3 seconds
+    setTimeout(function(){
+      location.reload();
+  }, 3000); // 3000 milliseconds = 3 seconds
+
 function getDrink(){
+
     const choice = document.querySelector('input').value
     const url = `https://api.nasa.gov/planetary/apod?api_key=gGIh2JmUXbLcG7fwadwnbaaZg2klIH4P3GWrYnbP&date=${choice}`
 fetch(url)
@@ -18,17 +25,19 @@ fetch(url)
     .then(data => {
       console.log(data)
       document.querySelector('h2').innerText = data.title
-      // let img =
-      // let hiddenVideo =
-      // let video =
-      // let hiddenVideo =
+      // let img = document.querySelector('img').src = data.url
+      // let hiddenVideo = document.querySelector('iframe').style.visibility = 'hidden'
+      // let video = document.querySelector('iframe').src = data.url
+      // let hiddenImg = document.querySelector('img').style.visibility = 'hidden' 
       if (data.media_type === 'image') {
-        document.querySelector('img').src = data.url
-        // document.querySelector('iframe').style.visibility = 'hidden' 
+        document.querySelector('img').src = data.url,
+        document.querySelector('iframe').style.visibility = 'hidden'
       }else if(data.media_type === 'video'){
-        document.querySelector('iframe').src = data.url
-        // document.querySelector('img').style.visibility = 'hidden' 
+        document.querySelector('iframe').src = data.url,
+        document.querySelector('img').style.visibility = 'hidden' 
       }else{
+        document.querySelector('img').style.visibility = 'hidden',        
+        document.querySelector('iframe').style.visibility = 'hidden' 
       }
       document.querySelector('h3').innerText = data.explanation
       // media type
@@ -36,6 +45,7 @@ fetch(url)
     .catch(err => {
         console.log(`error ${err}`)
     });
+
 }
 
 // anki
