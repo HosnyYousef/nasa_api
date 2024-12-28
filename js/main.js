@@ -6,9 +6,9 @@
 //     return confirm("Confirm refresh");
 // };
 
-function standby() {
-  document.getElementById('foo').src = 'images/nasaLogoTransparent.png'
-}
+// function standby() {
+//   document.getElementById('foo').src = 'images/nasaLogoTransparent.png'
+// }
 
 
 document.querySelector('button').addEventListener('click', getDrink)
