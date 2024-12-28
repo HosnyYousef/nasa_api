@@ -15,7 +15,6 @@ document.querySelector('button').addEventListener('click', getDrink)
 
   // location.replace()
 function getDrink(){
-
     const choice = document.querySelector('input').value
     const url = `https://api.nasa.gov/planetary/apod?api_key=gGIh2JmUXbLcG7fwadwnbaaZg2klIH4P3GWrYnbP&date=${choice}`
 fetch(url)
@@ -23,28 +22,14 @@ fetch(url)
     .then(data => {
       console.log(data)
       document.querySelector('h2').innerText = data.title
-      // let img = document.querySelector('img').src = data.url
-      // let hiddenVideo = document.querySelector('iframe').style.visibility = 'hidden'
-      // let video = document.querySelector('iframe').src = data.url
-      // let hiddenImg = document.querySelector('img').style.visibility = 'hidden' 
       if (data.media_type === 'image') {
-        document.querySelector('img').src = data.url
-        setTimeout(function(){
-        document.querySelector('img').style.visibility = 'visable',
-        document.querySelector('iframe').style.visibility = 'hidden'
-      }, 3000); 
-      document.querySelector('img').style.visibility = 'visable'
+        document.querySelector('img').src = data.url,
+        document.querySelector('iframe').removeAttribute('src'); 
       }else if(data.media_type === 'video'){
-        document.querySelector('iframe').src = data.url
-        setTimeout(function(){
-        document.querySelector('iframe').style.visibility = 'visable',
-        document.querySelector('img').style.visibility = 'hidden'
-      }, 3000); 
-      document.querySelector('iframe').style.visibility = 'visable'
-      // location.reload();
+        document.querySelector('iframe').src = data.url,
+        document.querySelector('img').removeAttribute('src'); 
       }
       document.querySelector('h3').innerText = data.explanation
-      // media type
     })
     .catch(err => {
         console.log(`error ${err}`)
