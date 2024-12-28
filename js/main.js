@@ -6,12 +6,18 @@
 //     return confirm("Confirm refresh");
 // };
 
+function standby() {
+  document.getElementById('foo').src = 'images/nasaLogoTransparent.png'
+}
+
+
 document.querySelector('button').addEventListener('click', getDrink)
 
 // window.reload = 
 
     // Refresh the page after a delay of 3 seconds
  // 3000 milliseconds = 3 seconds
+
 
   // location.replace()
 function getDrink(){
@@ -28,6 +34,7 @@ fetch(url)
       }else if(data.media_type === 'video'){
         document.querySelector('iframe').src = data.url,
         document.querySelector('img').removeAttribute('src'); 
+        // document.querySelector('iframe').removeAttribute('src'); 
       }
       document.querySelector('h3').innerText = data.explanation
     })
