@@ -43,8 +43,8 @@ img{
      width: 60%;
    }
 iframe{
-     height: 100%;
-     width: 30%;
+     height: auto;
+     width: auto;
 }
 
 html{
