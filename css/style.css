@@ -45,7 +45,9 @@ img{
 iframe{
      height: auto;
      width: auto;
-     margin: 20%;
+     height: 50vh;
+     width: 85vw;
+     border: 5px solid red;
 }
 
 html{

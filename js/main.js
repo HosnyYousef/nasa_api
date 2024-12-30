@@ -30,16 +30,13 @@ fetch(url)
       document.querySelector('h2').innerText = data.title
       if(data.media_type === 'image') {
         document.querySelector('img').style.visibility = 'visible'
+        document.getElementById('target').appendChild(  document.getElementById('to_be_moved2') )
         document.querySelector('iframe').style.visibility = 'hidden'
         document.querySelector('img').src = data.url
       }
       if(data.media_type === 'video') {
         document.querySelector('iframe').style.visibility = 'visible'
-        var yourImg = document.getElementById('yourImgId');
-        if(yourImg && yourImg.style) {
-            yourImg.style.height = '100px';
-            yourImg.style.width = '0px';
-        }
+        document.getElementById('target').appendChild(  document.getElementById('to_be_moved') )
         document.querySelector('img').style.visibility = 'hidden'
         document.querySelector('iframe').src = data.url
       }
