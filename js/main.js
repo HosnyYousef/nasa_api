@@ -35,9 +35,12 @@ fetch(url)
       }
       if(data.media_type === 'video') {
         document.querySelector('iframe').style.visibility = 'visible'
+        var yourImg = document.getElementById('yourImgId');
+        if(yourImg && yourImg.style) {
+            yourImg.style.height = '100px';
+            yourImg.style.width = '0px';
+        }
         document.querySelector('img').style.visibility = 'hidden'
-        let images=document.querySelectorAll('img');
-images.forEach(img => img.setAttribute("width",'60%'));
         document.querySelector('iframe').src = data.url
       }
       document.querySelector('h3').innerText = data.explanation
